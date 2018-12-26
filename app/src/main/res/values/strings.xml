@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TimeToFit</string>
+    <string name="title_home">Home</string>
+    <string name="title_planning">Planning</string>
+    <string name="title_account">My Account</string>
+
 </resources>
