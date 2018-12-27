@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/ETfirstName"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:hint="first name"
@@ -15,6 +16,7 @@
         android:layout_marginBottom="10dp"/>
 
     <EditText
+        android:id="@+id/ETlastName"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:hint="last name"
@@ -22,6 +24,7 @@
         android:layout_marginBottom="10dp"/>
 
     <EditText
+        android:id="@+id/ETemail"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:hint="e-mail"
@@ -29,6 +32,7 @@
         android:layout_marginBottom="10dp"/>
 
     <EditText
+        android:id="@+id/ETpass1"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:hint="password"
@@ -36,6 +40,7 @@
         android:layout_marginBottom="10dp"/>
 
     <EditText
+        android:id="@+id/ETpass2"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:hint="confirm password"
@@ -48,7 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="onSignUpClick"/>
 
 
 </LinearLayout>
