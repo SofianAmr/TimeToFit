@@ -1,39 +1,83 @@
 package com.example.victorhinaux.timetofit;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 
 public class Fragment_planning extends Fragment {
 
-    private String array_courses[];
+    private CalendarView mcalendarView;
+    private TextView mtextView;
+    private ListView mListView;
+
+    private Integer mYear;
+    private Integer mMonth;
+    private Integer mDay;
+    private Trainer Jimmy;
+
+    private Training Fitness = new Training("Fitness", "Bring your stuff", 10, 2, 2019, Jimmy);
+    private Training Cardio = new Training("Cardio", "Try to resist", 10, 2, 2019, Jimmy);
+    private Training[] values = new Training[]{Fitness, Cardio};
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState){
+        View v = inflater.inflate(R.layout.fragment_planning, container, false);
 
-        return inflater.inflate(R.layout.fragment_planning, container, false);
+        super.onCreate(saveInstanceState);
 
+        mcalendarView = (CalendarView) v.findViewById(R.id.calendar);
+        mtextView = (TextView) v.findViewById(R.id.date);
+        mListView = (ListView) v.findViewById(R.id.listview);
+        Jimmy = new Trainer("Jimmy", "jimmy@gmail.com", "0618291054");
+
+
+
+
+        final ArrayList<Training> list = new ArrayList<Training>();
+        for (int i = 0; i < values.length; ++i) {
+            list.add(values[i]);
+        }
+
+        mcalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                String date = dayOfMonth + " - " + (month+1) + " - " + year;
+                mtextView.setText(date);
+                for (Training training:list
+                        ) {
+                    DisplayTraining(training, dayOfMonth, month, year);
+                }
+            }
+        });
+
+        return v;
     }
 
-    /*@Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_planning);
-        array_courses=new String[5];
-        array_courses[0]="option 1";
-        array_courses[1]="option 2";
-        array_courses[2]="option 3";
-        array_courses[3]="option 4";
-        array_courses[4]="option 5";
-        Spinner s = (Spinner) findViewById(R.id.Spinner_courses);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, array_courses);
-        s.setAdapter(adapter);
-    }*/
+    public void DisplayTraining(Training training, int dayOfMonth, int month, int year) {
+        final MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(getContext(), values);
+        if ((training.getDay() == dayOfMonth) && (training.getMonth() == month + 1) && (training.getYear() == year)) {
+            mListView.setAdapter(adapter);
+        } else {
+            mListView.setAdapter(null);
+        }
+    }
+
+
+
 }

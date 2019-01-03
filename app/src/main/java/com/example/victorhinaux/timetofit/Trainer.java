@@ -1,5 +1,6 @@
 package com.example.victorhinaux.timetofit;
 
+
 import java.util.List;
 
 /**
@@ -9,6 +10,12 @@ import java.util.List;
 public class Trainer {
     String name, email, numero;
     List<Training> trainings;
+
+    public Trainer(String name, String email, String numero) {
+        this.name = name;
+        this.email = email;
+        this.numero = numero;
+    }
 
     public String getName() {
         return name;

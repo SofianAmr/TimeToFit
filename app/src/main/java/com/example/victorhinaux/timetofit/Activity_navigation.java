@@ -37,6 +37,7 @@ public class Activity_navigation extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new Fragment_home()).commit();
+
     }
 
 }

@@ -5,8 +5,52 @@ package com.example.victorhinaux.timetofit;
  */
 
 public class Training {
-    String name, details, timetable;
+    String name, details;
+    Integer day;
+    Integer month;
+    Integer year;
     Trainer trainer;
+
+    public Training(String name, String details, Integer day, Integer month, Integer year, Trainer trainer) {
+        this.name = name;
+        this.details = details;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.trainer = trainer;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
     public String getName() {
         return name;
@@ -22,21 +66,5 @@ public class Training {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public String getTimetable() {
-        return timetable;
-    }
-
-    public void setTimetable(String timetable) {
-        this.timetable = timetable;
-    }
-
-    public Trainer getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
     }
 }
