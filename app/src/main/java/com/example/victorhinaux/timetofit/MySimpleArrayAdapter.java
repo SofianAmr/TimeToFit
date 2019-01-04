@@ -1,12 +1,16 @@
 package com.example.victorhinaux.timetofit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MySimpleArrayAdapter extends ArrayAdapter<Training> {
     private final Context context;
@@ -23,9 +27,34 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Training> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.rowlayout, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.label);
+
+        TextView trainingTV = (TextView) rowView.findViewById(R.id.label);
+        TextView timelineTV = (TextView) rowView.findViewById(R.id.timeline);
+        Button trainerTV = (Button) rowView.findViewById(R.id.trainer);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        textView.setText(values[position].getName());
+        final Button registerBTN = (Button) rowView.findViewById(R.id.registerBTN);
+
+        registerBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerBTN.setEnabled(false);
+                registerBTN.setText("Registered");
+            }
+        });
+
+        trainerTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TrainerSheet.class);
+                context.startActivity(intent);
+            }
+        });
+
+        // print the text
+        trainingTV.setText(values[position].getName());
+        timelineTV.setText(values[position].getTimeline());
+        trainerTV.setText(values[position].getTrainer().getName());
+
         // change the icon for Windows and iPhone
         String s = values[position].getName();
         if (s.startsWith("Fitness")) {

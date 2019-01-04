@@ -27,10 +27,13 @@ public class Fragment_planning extends Fragment {
     private Integer mYear;
     private Integer mMonth;
     private Integer mDay;
-    private Trainer Jimmy;
 
-    private Training Fitness = new Training("Fitness", "Bring your stuff", 10, 2, 2019, Jimmy);
-    private Training Cardio = new Training("Cardio", "Try to resist", 10, 2, 2019, Jimmy);
+
+
+    private Trainer Jimmy = new Trainer("Jimmy", "jimmy@gmail.com", "0618291054");
+
+    private Training Fitness = new Training("Fitness", "Bring your stuff", 10, 2, 2019,"15:10 - 17:00", Jimmy);
+    private Training Cardio = new Training("Cardio", "Try to resist", 10, 2, 2019,"17:10 - 19:00", Jimmy);
     private Training[] values = new Training[]{Fitness, Cardio};
 
 
@@ -40,12 +43,12 @@ public class Fragment_planning extends Fragment {
         View v = inflater.inflate(R.layout.fragment_planning, container, false);
 
         super.onCreate(saveInstanceState);
-
+        Database helper = new Database(v.getContext());
         mcalendarView = (CalendarView) v.findViewById(R.id.calendar);
         mtextView = (TextView) v.findViewById(R.id.date);
         mListView = (ListView) v.findViewById(R.id.listview);
-        Jimmy = new Trainer("Jimmy", "jimmy@gmail.com", "0618291054");
 
+        //helper.insertTrainer(Jimmy);
 
 
 

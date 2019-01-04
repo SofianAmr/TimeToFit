@@ -43,10 +43,8 @@ public class Activity_register extends AppCompatActivity {
             String firstNamestr = firstName.getText().toString();
             String lastNamestr = lastName.getText().toString();
             String emailstr = email.getText().toString();
-            Log.d(TAG, emailstr);
             String pass1str = pass1.getText().toString();
             String pass2str = pass2.getText().toString();
-            Log.d(TAG, "register test");
 
             if (!pass1str.equals(pass2str)) {
                 //popup msg:
@@ -58,10 +56,7 @@ public class Activity_register extends AppCompatActivity {
                 c.setFirstName(firstNamestr);
                 c.setLastName(lastNamestr);
                 c.setEmail(emailstr);
-                Log.d(TAG, "emailstr:" + emailstr);
-
                 c.setPass(pass1str);
-                Log.d(TAG, "pass1str:" + pass1str);
                 helper.insertContact(c);
 
                 Intent intent = new Intent(Activity_register.this, MainActivity.class);

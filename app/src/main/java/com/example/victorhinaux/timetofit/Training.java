@@ -5,19 +5,20 @@ package com.example.victorhinaux.timetofit;
  */
 
 public class Training {
-    String name, details;
+    String name, details, timeline;
     Integer day;
     Integer month;
     Integer year;
     Trainer trainer;
 
-    public Training(String name, String details, Integer day, Integer month, Integer year, Trainer trainer) {
+    public Training(String name, String details, Integer day, Integer month, Integer year, String timeline, Trainer trainer) {
         this.name = name;
         this.details = details;
         this.day = day;
         this.month = month;
         this.year = year;
         this.trainer = trainer;
+        this.timeline = timeline;
     }
 
     public Trainer getTrainer() {
@@ -66,5 +67,13 @@ public class Training {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public String getTimeline() {
+        return timeline;
+    }
+
+    public void setTimeline(String timeline) {
+        this.timeline = timeline;
     }
 }

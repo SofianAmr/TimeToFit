@@ -48,4 +48,14 @@ public class Trainer {
     public void setTrainings(List<Training> trainings) {
         this.trainings = trainings;
     }
+
+    public String trainingsNames()
+    {
+        String trains = "";
+        for (Training train:trainings
+             ) {
+            trains=trains+train.getName();
+        }
+        return trains;
+    }
 }

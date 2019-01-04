@@ -57,11 +57,9 @@ public class MainActivity extends AppCompatActivity {
             EditText b = (EditText)findViewById(R.id.ETpassword);
             String pass = b.getText().toString();
 
-            Log.d(TAG, pass);
 
 
             String password = helper.searchPass(strEmail);
-            Log.d(TAG, password);
             if(pass.equals(password))
             {
                 Intent i = new Intent(MainActivity.this,Activity_navigation.class);
