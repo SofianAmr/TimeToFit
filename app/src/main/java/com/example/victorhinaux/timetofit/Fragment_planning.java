@@ -31,9 +31,10 @@ public class Fragment_planning extends Fragment {
 
 
     private Trainer Jimmy = new Trainer("Jimmy", "jimmy@gmail.com", "0618291054");
+    private Trainer Marina = new Trainer("Marina", "marina@gmail.com", "0793183475");
 
     private Training Fitness = new Training("Fitness", "Bring your stuff", 10, 2, 2019,"15:10 - 17:00", Jimmy);
-    private Training Cardio = new Training("Cardio", "Try to resist", 10, 2, 2019,"17:10 - 19:00", Jimmy);
+    private Training Cardio = new Training("Cardio", "Try to resist", 10, 2, 2019,"17:10 - 19:00", Marina);
     private Training[] values = new Training[]{Fitness, Cardio};
 
 

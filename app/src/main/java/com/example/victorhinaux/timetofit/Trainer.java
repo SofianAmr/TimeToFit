@@ -54,7 +54,7 @@ public class Trainer {
         String trains = "";
         for (Training train:trainings
              ) {
-            trains=trains+train.getName();
+            trains=train.getName()+","+trains;
         }
         return trains;
     }

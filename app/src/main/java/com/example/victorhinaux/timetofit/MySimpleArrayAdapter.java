@@ -30,7 +30,7 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Training> {
 
         TextView trainingTV = (TextView) rowView.findViewById(R.id.label);
         TextView timelineTV = (TextView) rowView.findViewById(R.id.timeline);
-        Button trainerTV = (Button) rowView.findViewById(R.id.trainer);
+        final TextView trainerTV = (TextView) rowView.findViewById(R.id.trainer);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         final Button registerBTN = (Button) rowView.findViewById(R.id.registerBTN);
 
@@ -46,6 +46,8 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Training> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, TrainerSheet.class);
+                String trainerName = null;
+                intent.putExtra("trainerTV",trainerTV.getText());
                 context.startActivity(intent);
             }
         });

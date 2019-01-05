@@ -38,7 +38,7 @@
             android:text="TextView"
             android:textSize="65px"/>
 
-        <Button
+        <TextView
             android:id="@+id/trainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,6 +46,8 @@
             android:text="@+id/trainer"
             android:textSize="65px"
             android:background="@null"
+            android:clickable="true"
+            android:textColor="#00F"
             android:textAllCaps="false"/>
 
     </LinearLayout>

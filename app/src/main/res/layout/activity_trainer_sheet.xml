@@ -71,13 +71,9 @@
                 android:id="@+id/numTrainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#00F"
                 android:text="TextView" />
 
-            <TextView
-                android:id="@+id/trainingsTrainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
         </LinearLayout>
 
     </LinearLayout>
