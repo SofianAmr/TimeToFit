@@ -43,7 +43,6 @@ public class TrainerSheet extends AppCompatActivity {
             trainersName = (String) b.get("trainerTV");
             String trainerEmail = helper.trainerEmail(trainersName);
             String trainerNumero = helper.trainerNumero(trainersName);
-            String trainerTrainings = helper.trainerTrainings(trainersName);
             nameTV.setText(trainersName);
             emailTV.setText(trainerEmail);
             numeroTV.setText(trainerNumero);

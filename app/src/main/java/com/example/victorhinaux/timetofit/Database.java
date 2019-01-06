@@ -14,7 +14,7 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String TAG = "Database";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "time2fitDB.db";
+    private static final String DATABASE_NAME = "time2fitDBv2.db";
 
 
     private static final String COLUMN_ID = "id";
@@ -30,7 +30,7 @@ public class Database extends SQLiteOpenHelper {
     SQLiteDatabase db;
 
     //Trainers table
-    private static final String COLUMN_NAME = "name";
+    private static final String COLUMN_NAMET = "nameT";
     private static final String COLUMN_EMAILT = "emailT";
     private static final String COLUMN_NUMERO = "numero";
     private static final String COLUMN_TRAININGSNAMES = "trainingsnames";
@@ -38,7 +38,7 @@ public class Database extends SQLiteOpenHelper {
     private Trainer Jimmy = new Trainer("Jimmy", "jimmy@gmail.com", "0618291054");
     private Trainer Marina = new Trainer("Marina", "marina@gmail.com", "0793183475");
 
-    private static final String TABLE_TRAINERS="create table trainers (id integer not null, name text not null, emailT text not null, numero text not null, trainingsNames text not null);";
+    private static final String TABLE_TRAINERS="create table trainers (id integer not null, nameT text not null, emailT text not null, numero text not null, trainingsNames text not null);";
 
     public Database(Context context)
     {
@@ -84,7 +84,7 @@ public class Database extends SQLiteOpenHelper {
         int count = cursor.getCount();
 
         values.put(COLUMN_ID, count);
-        values.put(COLUMN_NAME, t.getName());
+        values.put(COLUMN_NAMET, t.getName());
         values.put(COLUMN_EMAILT, t.getEmail());
         values.put(COLUMN_NUMERO, t.getNumero());
         values.put(COLUMN_TRAININGSNAMES, "");
@@ -126,10 +126,10 @@ public class Database extends SQLiteOpenHelper {
         insertTrainer(Marina);
         String result = "";
 
-        String query = "SELECT emailT FROM trainers WHERE name = '"+name+"';";
+        String query = "SELECT emailT FROM trainers WHERE nameT = '"+name+"';";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
-            result = cursor.getString(cursor.getColumnIndex("trainers.emailT"));
+            result = cursor.getString(cursor.getColumnIndex("emailT"));
         }
         cursor.close();
         return result;
@@ -139,27 +139,15 @@ public class Database extends SQLiteOpenHelper {
         db = getWritableDatabase();
         String result = "";
 
-        String query = "SELECT numero FROM trainers WHERE name = '"+name+"';";
+        String query = "SELECT numero FROM trainers WHERE nameT = '"+name+"';";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
-            result = cursor.getString(cursor.getColumnIndex("trainers.numero"));
+            result = cursor.getString(cursor.getColumnIndex("numero"));
         }
         cursor.close();
         return result;
     }
 
-    public String trainerTrainings(String name){
-        db = getWritableDatabase();
-        String result = "";
-
-        String query = "SELECT trainingsNames FROM trainers WHERE name = '"+name+"';";
-        Cursor cursor = db.rawQuery(query, null);
-        if (cursor.moveToFirst()) {
-            result = cursor.getString(cursor.getColumnIndex("trainers.trainingsNames"));
-        }
-        cursor.close();
-        return result;
-    }
 
 
 
