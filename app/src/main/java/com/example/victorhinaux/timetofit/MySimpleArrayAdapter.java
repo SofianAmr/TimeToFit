@@ -45,6 +45,7 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Training> {
         trainerTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Put information from this class from TrainerSheet
                 Intent intent = new Intent(context, TrainerSheet.class);
                 String trainerName = null;
                 intent.putExtra("trainerTV",trainerTV.getText());

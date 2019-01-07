@@ -59,6 +59,11 @@ public class Activity_register extends AppCompatActivity {
                 c.setPass(pass1str);
                 helper.insertContact(c);
 
+                Intent i = new Intent(this, Fragment_account.class);
+                i.putExtra("contactFN",firstNamestr);
+                i.putExtra("contactLN",lastNamestr);
+                i.putExtra("contactE",emailstr);
+
                 Intent intent = new Intent(Activity_register.this, MainActivity.class);
                 startActivity(intent);
             }

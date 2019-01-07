@@ -2,6 +2,7 @@ package com.example.victorhinaux.timetofit;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class TrainerSheet extends AppCompatActivity {
         TextView emailTV = (TextView) findViewById(R.id.emailTrainer);
         final TextView numeroTV = (TextView) findViewById(R.id.numTrainer);
 
+        ImageView imageView = (ImageView) findViewById(R.id.profileImg);
 
         final String trainersName;
 
@@ -49,6 +52,12 @@ public class TrainerSheet extends AppCompatActivity {
             nameTV.setText(trainersName);
             emailTV.setText(trainerEmail);
             numeroTV.setText(trainerNumero);
+
+            if (trainersName.startsWith("Jimmy")) {
+                imageView.setImageResource(R.drawable.jimmy);
+            } if (trainersName.startsWith("Marina")) {
+            imageView.setImageResource(R.drawable.marina);
+        }
         }
 
         Button backBTN = (Button) findViewById(R.id.backBTN);
@@ -78,14 +87,5 @@ public class TrainerSheet extends AppCompatActivity {
         smsIntent.putExtra("sms_body"  , "Hello "+name+",");
         startActivity(smsIntent);
         finish();
-
-        /*try {
-            startActivity(smsIntent);
-            finish();
-            Log.i("Finished sending SMS...", "");
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(TrainerSheet.this,
-                    "SMS faild, please try again later.", Toast.LENGTH_SHORT).show();
-        }*/
     }
 }

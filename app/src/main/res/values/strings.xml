@@ -3,5 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_planning">Planning</string>
     <string name="title_account">My Account</string>
+    <string name="facebook_app_id">217680315805896</string>
+    <string name="fb_login_protocol_scheme">fb217680315805896</string>
 
 </resources>
