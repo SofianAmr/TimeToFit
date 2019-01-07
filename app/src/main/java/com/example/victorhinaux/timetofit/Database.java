@@ -14,7 +14,7 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String TAG = "Database";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "time2fitDBv2.db";
+    private static final String DATABASE_NAME = "time2fitDBv3.db";
 
 
     private static final String COLUMN_ID = "id";

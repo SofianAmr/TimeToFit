@@ -1,5 +1,7 @@
 package com.example.victorhinaux.timetofit;
 
+import android.content.Context;
+
 /**
  * Created by mathp on 27/12/2018.
  */
@@ -20,6 +22,7 @@ public class Training {
         this.trainer = trainer;
         this.timeline = timeline;
     }
+
 
     public Trainer getTrainer() {
         return trainer;
